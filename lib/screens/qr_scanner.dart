@@ -45,14 +45,16 @@ class _QrScannerState extends State<QrScanner> {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'encrypted_key': scannedData}),
     );
- final responseBody = jsonDecode(response.body);
-    
+    final responseBody = jsonDecode(response.body);
+
     if (response.statusCode == 200) {
       // Handle success
-      _showDialog('Success: ${responseBody['message']}');
+      //  _showDialog('Success: ${responseBody['message']}');
+      _showDialog(scannedData);
     } else {
       // Handle error
-      _showDialog('Error: ${responseBody['message']}');
+     // _showDialog('Error: ${responseBody['message']}');
+       _showDialog(scannedData);
     }
   }
 
@@ -132,6 +134,7 @@ class _QrScannerState extends State<QrScanner> {
                 style: const TextStyle(fontSize: 16, color: Colors.white),
               ),
             ),
+          
           ],
         ),
       ),

@@ -5,6 +5,7 @@ import 'package:pc/bloc/stuattendace/stuattendance_bloc.dart';
 import 'package:pc/bloc/stuattendace/stuattendance_event.dart';
 import 'package:pc/bloc/stuattendace/stuattendance_state.dart';
 import 'package:pc/screens/attendance_by_date.dart';
+import 'package:pc/screens/qr_scanner.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -120,6 +121,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(onPressed: (){
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const QrScanner(),
+                ),
+              );
+            }, child: Text("QR Scanner")),
             const SizedBox(height: 16),
 
             // ✅ BlocListener for Attendance API
